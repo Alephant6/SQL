@@ -1,0 +1,69 @@
+.mode column
+.header on
+
+pragma foreign_keys=on;
+
+create table s
+(
+sno char(8) primary key,
+sname char(16) unique,
+status int,
+city char(8)
+);
+insert into s values
+('s1','精益',20,'天津'),
+('s2','盛锡',10,'北京'),
+('s3','东方红',30,'北京'),
+('s4','丰泰盛',20,'天津'),
+('s5','为民',30,'上海');
+
+create table p
+(pno char(8) primary key,
+pname char(16) not null,
+color char(8),
+weight int
+);
+insert into p values
+('p1','螺母','红',12),
+('p2','螺栓','绿',17),
+('p3','螺丝刀','蓝',14),
+('p4','螺丝刀','红',14),
+('p5','凸轮','蓝',40),
+('p6','齿轮','红',30);
+
+create table j
+(jno char(8) primary key,
+jname char(16) not null,
+city char(8) );
+insert into j values
+('j1','三建','北京'),
+('j2','一汽','长春'),
+('j3','弹簧厂','天津'),
+('j4','造船厂','天津'),
+('j5','机车厂','唐山'),
+('j6','无线电厂','常州'),
+('j7','半导体厂','南京');
+
+create table spj 
+(sno char(8) not null, pno char(8) not null,
+jno char(8) not null, qty int,
+primary key (sno , pno, jno),
+foreign key (sno) references s (sno),
+foreign key (pno) references p (pno),
+foreign key (jno) references j (jno) );
+insert into spj values
+('s1','p1','j1',200),('s1','p1','j3',100),
+('s1','p1','j4',700),('s1','p2','j2',100),
+('s2','p3','j1',400),('s2','p3','j2',200),
+('s2','p3','j4',500),('s2','p3','j5',400),
+('s2','p5','j1',400),('s2','p5','j2',100),
+('s3','p1','j1',200),('s3','p3','j1',200),
+('s4','p5','j1',100),('s4','p6','j3',300),
+('s4','p6','j4',200),('s5','p2','j4',100),
+('s5','p3','j1',200),('s5','p6','j2',200),
+('s5','p6','j4',500);
+
+select * from s;
+select * from p;
+select * from j;
+select * from spj;
