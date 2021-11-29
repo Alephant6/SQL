@@ -77,7 +77,8 @@ where cno = (select cno from course where cname = 'math');
 -- 3. 查询选修了“zhao同学所选课程”之外课程的学生姓名及课程名
 select sname, cname from student, course, sc
 where student.sno = sc.sno and course.cno = sc.cno and
-      sname != 'zhao';
+      cname not in(select cname from sc, student, course 
+      where student.sno = sc.sno and course.cno = sc.cno and sname = 'zhao') ;
 
 -- 4. 统计每人(学号)的未及格课程门数
 select sno, count(cno) fail_num from  sc
