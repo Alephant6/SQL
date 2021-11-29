@@ -1,0 +1,63 @@
+stu数据库:
+学生表student(sno,sname,sage)
+课程表course(cno,cname,credit)
+选修表sc(sno,cno,grade)
+
+数据如下:
+student:
+s1        		zhao      	19
+s2        		qian      	23
+s3        		sun       	34
+s4        		li        	31
+s5        		zhou      	23
+s6        		wu        	12
+s7        		zheng     	20
+s8        		wang      	21
+
+course:
+c1        	math      	6
+c2        	physics   	4
+c3        	english   	4
+c4        	DB        	2
+c5        	law       	3
+
+sc:
+s1        	c1        	70
+s1        	c3        	65
+s1        	c4        	NULL
+s2        	c1        	54
+s2        	c2        	67
+s2        	c5        	80
+s3        	c2        	88
+s3        	c4        	92
+s4        	c5        	24
+s4        	c2        	80
+s5        	c1        	75
+s5        	c2        	NULL
+s6        	c3        	65
+s7        	c2        	54
+s8        	c1        	90
+s8        	c5        	87
+
+
+请用SQL语句创建各表，并完成如下查询：
+
+0，在S表中插入自己的完整信息，例如学号85，姓名zhangsan，年龄27；
+
+1，查询选修math的总人数；
+
+2，计算math的平均分；
+
+3，查询选修了“zhao同学所选课程”之外课程的学生姓名及课程名；
+
+4，统计每人(学号)的未及格课程门数；
+
+5，统计每科（课号）的未及格人数；
+
+6，统计选修课程的平均分超过80的学生学号及平均分；
+
+7，查找每科的最高分同学及分数,返回学号、课号与成绩三个属性；
+
+8，查找每科的最高分同学及分数,返回姓名、课名与成绩三个属性(注:排除空值记录)。
+
+补充：如何计算学生的加权平均成绩？
