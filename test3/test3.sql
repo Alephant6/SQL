@@ -87,7 +87,7 @@ where vendor = '宝洁' and commodity.cno = purchase.cno
 select distinct sname from commodity, shopper, purchase
 where commodity.cno = purchase.cno and shopper.sno = purchase.sno
     and commodity.cno in (select cno from shopper, purchase 
-        where shopper.sno = purchase.sno and sname = "Dennis");
+        where shopper.sno = purchase.sno and sname = 'Dennis');
 
 
 -- 3.4 求女性顾客购买的商品类别；
@@ -105,7 +105,7 @@ group by vendor;
 
 -- 3.5.2 找出牙膏卖出数量最多的供应商
 select vendor from toothpaste_vendor
-where totalNum = (select max(toltalNum) from toothpaste_vendor);
+where totalNum = (select max(totalNum) from toothpaste_vendor);
 
 
 -- 4.将所有的牙膏商品单价增加10%。 
