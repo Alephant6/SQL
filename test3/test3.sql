@@ -99,13 +99,13 @@ where commodity.cno = purchase.cno and shopper.sno = purchase.sno
 -- 3.5 牙膏卖出数量最多的供应商。
 -- 3.5.1 建立牙膏供应商销售总数视图
 create view toothpaste_vendor as       
-select sum(num) toltalNum, vendor from commodity, purchase 
+select sum(num) totalNum, vendor from commodity, purchase 
 where class = '牙膏' and commodity.cno = purchase.cno
 group by vendor;
 
 -- 3.5.2 找出牙膏卖出数量最多的供应商
 select vendor from toothpaste_vendor
-where toltalNum = (select max(toltalNum) from toothpaste_vendor);
+where totalNum = (select max(toltalNum) from toothpaste_vendor);
 
 
 -- 4.将所有的牙膏商品单价增加10%。 
